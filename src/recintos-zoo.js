@@ -41,7 +41,6 @@ class RecintosZoo
             
             if (!biomas.includes(recinto.bioma)) return false;
 
-            // Checar espaço necessário
             let espaçoLivre = recinto.tamanhoTotal;
             let quantidadeExistente = 0;
 
@@ -63,7 +62,6 @@ class RecintosZoo
                 return false;
             }
 
-            // Calcular espaço necessário
             let espaçoNecessário = quantidade * tamanhoAnimal;
             if (Object.keys(recinto.animaisExistentes).length > 0) {
                 espaçoNecessário += 1;
@@ -87,13 +85,11 @@ class RecintosZoo
                     espaçoLivre -= qtd * RecintosZoo.animais['macaco'].tamanho;
                 }
             }
+            
             return `Recinto nro ${recinto.numero} (espaço livre: ${espaçoLivre} total: ${recinto.tamanhoTotal})`;
         }).sort((a, b) => {
             return parseInt(a.match(/Recinto nro (\d+)/)[1]) - parseInt(b.match(/Recinto nro (\d+)/)[1]);
         }).join("\n");
     }
-    
-
 }
-
 export { RecintosZoo as RecintosZoo };
